@@ -10,6 +10,7 @@ const queryClient = new QueryClient()
 const router = createRouter({
   routeTree,
   context: { queryClient },
+  basepath: "/Naveen__Portfolio",
 })
 
 declare module '@tanstack/react-router' {
