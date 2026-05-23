@@ -13,6 +13,7 @@ import heroAvatar from "@/assets/hero-avatar.jpg";
 import projGuidy from "@/assets/project-guidy.jpg";
 import projLearning from "@/assets/project-learning.jpg";
 import projResume from "@/assets/project-resume.jpg";
+import projEarlyAlert from "@/assets/project-early-alert.png";
 
 const titles = [
   "Frontend Developer",
@@ -78,6 +79,15 @@ const skills = {
 };
 
 const projects = [
+  {
+    title: "Early Alert System",
+    desc: "A real-time emergency alert and early warning platform designed to monitor critical events and hazards instantly.",
+    tech: ["React.js", "Node.js", "Express", "Tailwind CSS"],
+    img: projEarlyAlert,
+    demoUrl: "https://early-alert-system.onrender.com",
+    codeUrl: "#",
+    note: "Hosted on Render Free Tier. The server spins down when idle, so please allow 40-50 seconds for the 'cold start' on your first visit.",
+  },
   {
     title: "Guidy – Tourist Guide",
     desc: "A tourist guide web app helping users explore destinations with an easy-to-use interface.",
@@ -291,13 +301,41 @@ export function PortfolioPage() {
                   ))}
                 </div>
                 <div className="mt-5 flex gap-3">
-                  <a href="#" className="text-sm px-4 py-2 rounded-full font-medium text-primary-foreground" style={{ background: "var(--gradient-primary)" }}>
-                    Live Demo
-                  </a>
-                  <a href="#" className="text-sm px-4 py-2 rounded-full font-medium glass hover:bg-white/10 inline-flex items-center gap-2">
-                    <FaGithub /> Code
-                  </a>
+                  {p.demoUrl && p.demoUrl !== "#" ? (
+                    <a
+                      href={p.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm px-4 py-2 rounded-full font-medium text-primary-foreground text-center"
+                      style={{ background: "var(--gradient-primary)" }}
+                    >
+                      Live Demo
+                    </a>
+                  ) : (
+                    <span className="text-xs px-4 py-2 rounded-full font-medium bg-white/5 text-muted-foreground border border-white/5 cursor-not-allowed">
+                      Demo Offline
+                    </span>
+                  )}
+                  {p.codeUrl && p.codeUrl !== "#" ? (
+                    <a
+                      href={p.codeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm px-4 py-2 rounded-full font-medium glass hover:bg-white/10 inline-flex items-center gap-2"
+                    >
+                      <FaGithub /> Code
+                    </a>
+                  ) : (
+                    <span className="text-xs px-4 py-2 rounded-full font-medium bg-white/5 text-muted-foreground border border-white/5 cursor-not-allowed inline-flex items-center gap-2">
+                      <FaGithub /> Repo Private
+                    </span>
+                  )}
                 </div>
+                {p.note && (
+                  <p className="mt-4 text-[10px] text-neon-cyan/80 font-mono leading-relaxed border border-neon-cyan/20 bg-neon-cyan/5 rounded-lg p-2.5 animate-pulse">
+                    ⚡ {p.note}
+                  </p>
+                )}
               </div>
             </motion.article>
           ))}
