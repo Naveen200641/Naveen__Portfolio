@@ -10,6 +10,7 @@ const queryClient = new QueryClient()
 const router = createRouter({
   routeTree,
   context: { queryClient },
+  // Configured basepath to match Vite base URL for correct GitHub Pages routing and prevention of 404 Page Not Found errors
   basepath: "/Naveen__Portfolio",
 })
 
