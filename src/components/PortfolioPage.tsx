@@ -306,6 +306,7 @@ export function PortfolioPage() {
                       href={p.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="text-sm px-4 py-2 rounded-full font-medium text-primary-foreground text-center"
                       style={{ background: "var(--gradient-primary)" }}
                     >
@@ -321,6 +322,7 @@ export function PortfolioPage() {
                       href={p.codeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="text-sm px-4 py-2 rounded-full font-medium glass hover:bg-white/10 inline-flex items-center gap-2"
                     >
                       <FaGithub /> Code
